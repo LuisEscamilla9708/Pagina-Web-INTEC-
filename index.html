@@ -1,109 +1,251 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="estilos.css">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>INTEC Seguridad</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+<link rel="stylesheet" href="estilos.css"> <!-- ← ahora va al final -->
+
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="imagenes/Blue Modern Business Card Landscape.png" alt="Logo INTEC">
-            </a>
-            <div class="collapse navbar-collapse justify-content-end">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Productos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Sobre Nosotros</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="btn btn-primary" href="#">Contáctanos</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
 
-    <div class="Imagen_Inicio">
-        <img src="imagenes/aGENCIA DE ENFERMERIA (13).png" alt="Imagen principal">
+  <!-- NAV -->
+ <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top shadow-sm">
+  <div class="container-fluid px-3 px-lg-4">  <!-- ← FLUID para ocupar todo el ancho -->
+    <a class="navbar-brand d-flex align-items-center gap-2 me-0" href="#">
+      <img src="imagenes/Blue Modern Business Card Landscape.png" alt="Logo INTEC">
+    </a>
+
+    <!-- Botón hamburguesa -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+            aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2"> <!-- ← empuja a la derecha -->
+        <li class="nav-item"><a class="nav-link" href="#servicios">Productos</a></li>
+        <li class="nav-item"><a class="nav-link" href="#sobre-nosotros">Sobre Nosotros</a></li>
+        <li class="nav-item"><a class="btn btn-primary ms-lg-2" href="#contacto">Contáctanos</a></li>
+      </ul>
     </div>
-<div class="cards-section">
-  <h1>Nuestros servicios</h1>
-
-  <div class="cards-container">
-    <article class="card">
-      <img src="imagenes/descarga.png" alt="Cerradura eléctrica" class="card-img">
-      <div class="card-body">
-        <h3 class="card-title">Cerradura eléctrica</h3>
-        <p class="card-text">Instalación profesional y servicio técnico 24/7 para acceso seguro.</p>
-      </div>
-      <div class="card-actions">
-        <a href="#" class="btn btn-primary">Más información</a>
-      </div>
-    </article>
-
-    <article class="card">
-      <img src="imagenes/interfon.png" alt="Videoportero" class="card-img">
-      <div class="card-body">
-        <h3 class="card-title">Videoporteros</h3>
-        <p class="card-text">Control de acceso con audio y video de alta definición.</p>
-      </div>
-      <div class="card-actions">
-        <a href="#" class="btn btn-primary">Más información</a>
-      </div>
-    </article>
-
-    <article class="card">
-      <img src="imagenes/camara.png" alt="Cámara de seguridad" class="card-img">
-      <div class="card-body">
-        <h3 class="card-title">Cámaras CCTV</h3>
-        <p class="card-text">Monitoreo confiable para negocios y hogares.</p>
-      </div>
-      <div class="card-actions">
-        <a href="#" class="btn btn-primary">Más información</a>
-      </div>
-    </article>
   </div>
-</div>
+</nav>
 
-<section class="container my-5" id="sobre-nosotros">
-  <div class="row justify-content-center">
-    <div class="col-lg-10">
-      <h2 class="fw-bold mb-3">Sobre nosotros</h2>
-      <p>
-        Somos un equipo especializado en <strong>instalación de interfón/videoportero y chapas eléctricas</strong> para hogares, oficinas y pymes. Diseñamos soluciones de acceso
-        <strong>seguras, cómodas y escalables</strong>, integrando cuando es necesario <strong>cámaras</strong> como apoyo visual para verificación y evidencia.
-      </p>
+  <!-- HERO -->
+  <div class="Imagen_Inicio">
+    <img src="imagenes/aGENCIA DE ENFERMERIA (13).png" alt="Imagen principal">
+  </div>
 
-      <h5 class="mt-4">Qué hacemos</h5>
-      <ul class="mb-3">
-        <li>Diagnóstico y propuesta a medida.</li>
-        <li>Suministro, <strong>instalación profesional</strong> y configuración.</li>
-        <li>Integración con app, teclado, tarjeta o huella.</li>
-        <li><strong>Capacitación básica</strong> y entrega con pruebas.</li>
-      </ul>
+  <!-- CARDS -->
+  <section class="cards-section" id="servicios">
+    <div class="container">
+      <h1 class="text-center">Nuestros servicios</h1>
 
-      <h5>Por qué elegirnos</h5>
-      <ul class="mb-3">
-        <li>Técnicos certificados y materiales de grado profesional.</li>
-        <li><strong>Garantía por escrito</strong> en equipos y mano de obra.</li>
-        <li>Respuesta ágil para soporte y mantenimiento.</li>
-        <li>Compatibilidad con equipos existentes y crecimiento por etapas.</li>
-      </ul>
+      <div class="cards-container">
+        <article class="card">
+          <img src="imagenes/descarga.png" alt="Cerradura eléctrica" class="card-img">
+          <div class="card-body">
+            <h3 class="card-title">Cerradura eléctrica</h3>
+            <p class="card-text">Instalación profesional y servicio técnico 24/7 para acceso seguro.</p>
+          </div>
+          <div class="card-actions">
+            <a href="#contacto" class="btn btn-primary w-100">Más información</a>
+          </div>
+        </article>
 
-      <h5>Nuestro enfoque</h5>
-      <p>
-        Priorizamos <strong>interfón + chapa eléctrica</strong> para darte control real de quién entra; las <strong>cámaras</strong> se suman como complemento inteligente para verificación y registro, sin encarecer el proyecto.
-      </p>
+        <article class="card">
+          <img src="imagenes/interfon.png" alt="Videoportero" class="card-img">
+          <div class="card-body">
+            <h3 class="card-title">Videoporteros</h3>
+            <p class="card-text">Control de acceso con audio y video de alta definición.</p>
+          </div>
+          <div class="card-actions">
+            <a href="#contacto" class="btn btn-primary w-100">Más información</a>
+          </div>
+        </article>
 
-      <div class="d-flex flex-wrap gap-2 align-items-center mt-4">
-        <span class="badge text-bg-primary">CDMX y área metropolitana</span>
-        <a href="#contacto" class="btn btn-primary">Solicitar cotización</a>
+        <article class="card">
+          <img src="imagenes/camara.png" alt="Cámara de seguridad" class="card-img">
+          <div class="card-body">
+            <h3 class="card-title">Cámaras CCTV</h3>
+            <p class="card-text">Monitoreo confiable para negocios y hogares.</p>
+          </div>
+          <div class="card-actions">
+            <a href="#contacto" class="btn btn-primary w-100">Más información</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOQUE: Soluciones de Control de Acceso -->
+  <section class="access-section py-5">
+    <div class="container">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-5 order-lg-1 order-2">
+          <div class="access-photo">
+            <img src="imagenes/repartidor-haciendo-clic-en-la-campana.jpg" alt="Técnico instalando chapa/interfón">
+          </div>
+          <div class="brand-strip">
+            <span class="me-2">Marcas:</span>
+            <img src="imagenes/hikvision-logo.png" alt="Hikvision">
+            <img src="imagenes/dahua.png" alt="Dahua">
+            <img src="imagenes/zkteco.jpg" alt="ZKTeco">
+            <img src="imagenes/femax.png" alt="Fermax">
+          </div>
+        </div>
+
+        <div class="col-lg-7 order-lg-2 order-1">
+          <h2 class="section-title mb-2">Soluciones de Control de Acceso </h2>
+          <p class="lead text-secondary">
+            Somos especialistas en <strong>chapas eléctricas</strong> e <strong>interfones</strong>, con integración opcional de
+            <strong>cámaras CCTV</strong>. Instalamos, actualizamos y damos mantenimiento preventivo/correctivo en hogares,
+            condominios, oficinas y comercios.
+          </p>
+
+          <div class="row g-3 mt-3">
+            <div class="col-sm-6">
+              <div class="feature-card h-100">
+                <div class="feature-icon"><i class="bi bi-door-closed"></i></div>
+                <h6 class="mb-1">Chapas eléctricas y control</h6>
+                <ul class="small m-0">
+                  <li>Eléctricas, magnéticas y cerraduras digitales.</li>
+                  <li>Apertura por llave, tag, teclado, huella o app.</li>
+                  <li>Integración con videoportero y horarios.</li>
+                  <li>Fuentes de poder y respaldo de batería.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <div class="feature-card h-100">
+                <div class="feature-icon"><i class="bi bi-camera-video"></i></div>
+                <h6 class="mb-1">Interfón y videoportero</h6>
+                <ul class="small m-0">
+                  <li>Kits de audio y video HD (una o varias viviendas).</li>
+                  <li>Paneles antivandálicos y módulos para condominio.</li>
+                  <li>Apertura de chapa desde monitor o app.</li>
+                  <li>Grabación de visitantes y alertas móviles.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="d-flex flex-wrap gap-2 mt-4">
+            <a href="#contacto" class="btn btn-primary"><i class="bi bi-whatsapp me-1"></i> Cotizar instalación</a>
+            <a href="#contacto" class="btn btn-outline-primary">Agendar visita</a>
+            <span class="badge text-bg-light ms-1">CDMX y Zona Metropolitana</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOQUE: Calidad (azul más fuerte) -->
+  <section class="quality-section py-5">
+    <div class="container">
+      <h2 class="section-title text-center mb-4">Calidad de nuestros servicios</h2>
+      <div class="row g-3 justify-content-center">
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="quality-item">
+            <i class="bi bi-shield-check"></i>
+            <h6>Técnicos certificados</h6>
+            <p class="small">Instalación segura conforme a norma y mejores prácticas.</p>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="quality-item">
+            <i class="bi bi-clipboard-check"></i>
+            <h6>Garantía por escrito</h6>
+            <p class="small">Equipos y mano de obra respaldados y con refacciones.</p>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="quality-item">
+            <i class="bi bi-phone"></i>
+            <h6>Soporte rápido</h6>
+            <p class="small">Atención ágil y planes de mantenimiento 24/7.</p>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="quality-item">
+            <i class="bi bi-puzzle"></i>
+            <h6>Compatibilidad</h6>
+            <p class="small">Integración con equipos existentes y crecimiento por etapas.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOQUE: Cómo trabajamos -->
+<!-- CÓMO TRABAJAMOS (solo imágenes) -->
+<section class="process-section py-5" aria-labelledby="como-trabajamos">
+  <div class="container">
+    <h2 id="como-trabajamos" class="section-title text-center mb-4"></h2>
+
+    <div class="process-gallery">
+      <!-- Cambia las rutas por tus fotos reales -->
+      <figure class="process-pic">
+         <img src="imagenes/tnk-21-9dc20bdf5d0f59658116956801278665-480-0.png" alt="Servicio técnico y mantenimiento">
+      </figure>
+
+      <figure class="process-pic">
+        <img src="imagenes/214077-d.jpg" alt="Visita técnica y cotización">
+      </figure>
+
+      <figure class="process-pic">
+        <img src="imagenes/INBIK1.png" alt="Instalación de chapa/interfón">
+      </figure>
+
+      <figure class="process-pic">
+        <img src="imagenes/CCTV.jpg " alt="Servicio técnico y mantenimiento">
+      </figure>
+    </div>
+  </div>
+</section>
+
+
+  
+<!-- CONTACTO (CTA estilo card) -->
+<section id="contacto" class="cta-wrap my-5">   <!-- ← usa .cta-wrap -->
+  <div class="container">                       <!-- ← un solo container -->
+    <div class="cta-card shadow-sm rounded-4 p-3 p-md-4">
+      <div class="row g-4 align-items-center">
+        <!-- Foto -->
+        <div class="col-md-5">
+          <div class="cta-photo rounded-3 overflow-hidden">
+            <img src="imagenes/sonriendo-tecnico.jpg"
+                 alt="Técnico instalando videoportero">
+          </div>
+        </div>
+
+        <!-- Texto + botones -->
+        <div class="col-md-7">
+          <h3 class="cta-title mb-2">¿Listo para cotizar?</h3>
+          <p class="cta-subtitle mb-3">
+            Llámanos o envíanos un mensaje. Te damos una cotización clara y rápida.
+          </p>
+
+          <div class="d-flex flex-wrap gap-2 mb-3">
+            <a href="https://wa.me/525576064866" class="btn cta-btn-whatsapp">
+              <i class="bi bi-whatsapp me-2"></i> Escríbenos
+            </a>
+            <a href="tel:+525576064866" class="btn cta-btn-call">
+              <i class="bi bi-telephone me-2"></i> 55 7606 4866
+            </a>
+          </div>
+
+          <ul class="cta-badges list-unstyled d-grid">
+            <li><i class="bi bi-shield-check"></i> Técnicos certificados</li>
+            <li><i class="bi bi-clipboard-check"></i> Garantía digital</li>
+            <li><i class="bi bi-geo-alt"></i> CDMX y Zona Metropolitana</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -113,13 +255,23 @@
 
 
 
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center gap-3 py-3">
+      <div class="d-flex align-items-center gap-2 footer-left">
+  
+        <span class="small">© 2025 INTEC Seguridad</span>
+      </div>
+      <div class="d-flex align-items-center gap-3 footer-center small">
+    
+        <a href="#" class="link-light text-decoration-none">Aviso de privacidad</a>
+      </div>
+      <div class="d-flex align-items-center gap-3 footer-right small">
 
+      </div>
+    </div>
+  </footer>
 
-
-
-
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 </body>
 </html>

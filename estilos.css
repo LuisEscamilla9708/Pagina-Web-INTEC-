@@ -1,112 +1,262 @@
-        .Imagen_Inicio img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        .navbar-brand img {
-              height: 60px; /* Aumenta el tamaño del logo */
-    width: auto;  /* Mantiene proporciones correctas */
-        }
-        .navbar-nav .nav-link {
-            font-weight: 500;
-            color: #000;
-            font-size: 20px;
-        }
-        .navbar-nav .nav-link:hover {
-            color: #0056b3;
-        }
-
-/* Sección y título */
-.cards-section {
-  padding: 56px 24px;
-  text-align: center;
+/* --- Ajustes base y helpers responsivos --- */
+:root{
+  --primary:#0d6efd;
+  --ink-500:#475467;
+  --border-strong: #0a173a4d;
 }
-.cards-section h1 {
-  font-size: clamp(2rem, 3vw, 2.6rem);
-  font-weight: 800;
-  margin-bottom: 28px;
+*{box-sizing:border-box;}
+img{max-width:100%;height:auto;display:block;}
+
+/* Hero */
+.Imagen_Inicio img{
+  width:100%;
+  height:auto;
+  display:block;
+  object-fit:cover;
 }
 
-/* Contenedor responsive de cards con buena separación */
-.cards-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-  gap: 36px;              /* ← separa más las cards */
-  max-width: 1100px;
-  margin: 0 auto;
+/* Navbar */
+.navbar-brand img{ height:56px; width:auto; }
+.navbar-nav .nav-link{ font-weight:600; color:#000; font-size:18px; }
+.navbar-nav .nav-link:hover{ color:#0056b3; }
+
+/* Cards */
+.cards-section{ padding:56px 0; }
+.cards-section h1{
+  font-size:clamp(2rem,3.8vw,2.6rem);
+  font-weight:800;
+  margin-bottom:28px;
+}
+.cards-container{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:24px;
+}
+.card{
+  background:#fff;border:1px solid #e7e7e9;border-radius:16px;overflow:hidden;
+  box-shadow:0 6px 14px rgba(16,24,40,.06);
+  transition:transform .25s, box-shadow .25s, border-color .25s;
+}
+.card:hover{ transform:translateY(-6px); box-shadow:0 14px 30px rgba(16,24,40,.12); border-color:#d6d6da; }
+.card-img{
+  width:100%;height:190px;object-fit:contain;background:linear-gradient(180deg,#f9fafb,#f3f4f6);
+}
+.card-body{ padding:18px 18px 0; }
+.card-title{ font-size:1.1rem;font-weight:700;margin:4px 0 8px; }
+.card-text{ color:var(--ink-500); line-height:1.55; margin:0; }
+.card-actions{ padding:16px 18px 20px; display:flex; }
+.btn{ padding:10px 16px; font-weight:600; border-radius:10px; }
+.btn-primary{ background:var(--primary); color:#fff; box-shadow:0 4px 10px rgba(13,110,253,.25); }
+.btn-primary:hover{ background:#0b5ed7; box-shadow:0 6px 14px rgba(13,110,253,.35); }
+
+/* --- Acceso / Interfón / Cámaras --- */
+.section-title{ font-weight:800; letter-spacing:-.2px; }
+.access-photo img{
+  border-radius:18px; box-shadow:0 10px 24px rgba(16,24,40,.12);
+}
+.brand-strip{ display:flex; align-items:center; gap:18px; flex-wrap:wrap; margin-top:18px; color:#475467; font-size:.9rem; }
+.brand-strip img{  opacity:.9;  height: clamp(36px, 3.2vw, 44px);  }
+
+.feature-card{
+  background:#fff; border:1px solid #eaecf0; border-radius:14px; padding:14px;
+  box-shadow:0 6px 16px rgba(16,24,40,.06);
+}
+.feature-icon{
+  width:34px;height:34px;border-radius:10px;display:grid;place-items:center;
+  background:#e8f0ff;color:#0d6efd;margin-bottom:8px;font-size:18px;
+}
+.feature-card ul{ padding-left:18px; }
+.btn.btn-outline-primary{ border-color:#0d6efd; }
+
+/* --- Calidad: azul de fondo más fuerte --- */
+.quality-section{
+
+  background: linear-gradient(180deg, #dbe7ff 0%, #c7d7ff 100%);
+}
+.quality-item{
+  background:#fff; border:1px solid #eaecf0; border-radius:14px; padding:18px; text-align:center; height:100%;
+  box-shadow:0 6px 16px rgba(16,24,40,.06);
+}
+.quality-item i{ font-size:28px; color:#0d6efd; margin-bottom:8px; display:block; }
+.quality-item h6{ font-weight:700; margin-bottom:6px; }
+
+/* --- Cómo trabajamos --- */
+.process-item{
+  background:#fff; border:1px solid #eaecf0; border-radius:14px; padding:18px; text-align:center; height:100%;
+  box-shadow:0 6px 16px rgba(16,24,40,.06);
+}
+.process-item i{ font-size:30px; color:#0d6efd; margin-bottom:8px; display:block; }
+.process-item h6{ font-weight:700; margin-bottom:6px; }
+
+/* --- Footer --- */
+.site-footer{ background:#0b1d35; color:#e6eefc; }
+.site-footer .footer-logo{ height:28px; width:auto; filter:brightness(1.2) contrast(1.1); }
+.site-footer .container{ border-top:1px solid rgba(255,255,255,.08); }
+.site-footer a:hover{ text-decoration:underline; }
+
+
+
+/* ===== CTA Card ===== */
+.cta-card{
+  background: #ffffff;
+  border: 1px solid #e9eef6;
 }
 
-/* Card */
-.card {
-  background: #fff;
-  border: 1px solid #e7e7e9;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 6px 14px rgba(16,24,40,.06);
-  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-}
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 14px 30px rgba(16,24,40,.12);
-  border-color: #d6d6da;
-}
-
-/* Imagen dentro de la card */
-.card-img {
+.cta-photo img{
   width: 100%;
-  height: 190px;          /* altura consistente */
-  object-fit: contain;    /* no se deforma la imagen */
-  background: linear-gradient(180deg,#f9fafb, #f3f4f6);
+  height: 100%;
+  max-height: 320px;         /* límite para que no crezca demasiado */
+  object-fit: cover;
+  display: block;
 }
 
-/* Cuerpo */
-.card-body {
-  padding: 18px 18px 0;
- 
+.cta-title{
+  font-weight: 800;
+  letter-spacing: -.3px;
 }
-.card-title {
-  font-size: 1.1rem;
-  font-weight: 700;
-  margin: 4px 0 8px;
-}
-.card-text {
+
+.cta-subtitle{
   color: #475467;
-  line-height: 1.55;
   margin: 0;
 }
 
-/* Área de acciones / botón */
-.card-actions {
-  padding: 16px 18px 20px;
-  display: flex;
-  justify-content: center;
+/* Botones */
+.cta-btn-whatsapp{
+  background: #22c55e;
+  color: #062c13;
+  font-weight: 700;
+  padding: 12px 18px;
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0 10px 20px rgba(34,197,94,.25);
+}
+.cta-btn-whatsapp:hover{
+  filter: brightness(1.05);
+  color: #062c13;
 }
 
-/* Botón azul (tipo “primario”) */
-.btn {
-  display: inline-block;
-  padding: 10px 16px;
-  font-weight: 600;
-  border-radius: 10px;
-  text-decoration: none;
-  transition: box-shadow .2s ease, transform .06s ease, background-color .2s ease;
-}
-.btn-primary {
-  background: #0d6efd;       /* azul primario */
+.cta-btn-call{
+  background: #155e75;       /* azul verdoso sobrio */
   color: #fff;
-  box-shadow: 0 4px 10px rgba(13,110,253,.25);
+  font-weight: 700;
+  padding: 12px 18px;
+  border-radius: 12px;
+  border: none;
 }
-.btn-primary:hover {
-  background: #0b5ed7;       /* azul un poco más oscuro */
-  box-shadow: 0 6px 14px rgba(13,110,253,.35);
-}
-.btn-primary:active {
-  transform: translateY(1px);
+.cta-btn-call:hover{
+  filter: brightness(1.05);
+  color: #fff;
 }
 
-/* Opcional: foco accesible */
-.btn-primary:focus-visible {
-  outline: 3px solid #b6d4fe;
-  outline-offset: 2px;
-  box-shadow: 0 0 0 4px rgba(13,110,253,.25);
+/* Badges */
+.cta-badges{
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 8px 16px;
+  margin: 0;
+}
+.cta-badges li{
+  display: flex; align-items: center; gap: 10px;
+  color: #344054;
+  font-weight: 600;
+}
+.cta-badges i{
+  color: #2563eb;            /* acento azul */
+  font-size: 1.1rem;
+}
+
+
+.card,
+.feature-card,
+.quality-item,
+.process-item {
+  background: #fff;                       /* mantiene fondo blanco */
+  border: 1px solid var(--border-strong); /* contorno más visible */
+  box-shadow: 0 6px 14px rgba(16,24,40,.06); /* conserva sombra sutil */
+}
+
+/* Opcional: al pasar el mouse NO cambiar el borde (solo sombra) */
+.card:hover,
+.feature-card:hover,
+.quality-item:hover,
+.process-item:hover {
+  border-color: var(--border-strong);
+  box-shadow: 0 12px 26px rgba(16,24,40,.10);
+}
+
+
+/* Galería “Cómo trabajamos” solo imágenes */
+.process-gallery{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 20px;
+}
+
+.process-pic{
+  margin: 0;
+  border-radius: 16px;
+  border: 1px solid #0a143017;               /* azul fuerte del contorno */
+  overflow: hidden;
+  box-shadow: 0 8px 18px rgba(16,24,40,.10);
+  background: #fff;                         /* evita transparencia */
+}
+
+.process-pic img{
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4 / 3;                      /* formato consistente */
+  object-fit: cover;
+  display: block;
+  transition: transform .35s ease;
+}
+
+.process-pic:hover img{
+  transform: scale(1.04);                   /* zoom sutil al hover */
+}
+
+/* En pantallas pequeñas, un poco más de aire */
+@media (max-width: 575px){
+  .process-gallery{ gap: 14px; }
+}
+
+
+
+
+
+.cta-wrap{
+  background:#dbe7ff;
+  padding:28px 0;
+  border-top:1px solid #d0dcfd;
+  border-bottom:1px solid #d0dcfd;
+}
+@media (min-width:992px){ .cta-wrap{ padding:40px 0; } }
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Responsivo */
+@media (max-width: 575px){
+  .cta-title{ font-size: 1.5rem; }
+  .cta-photo img{ max-height: 220px; }
+}
+
+
+
+/* --- Responsivo extra --- */
+@media (max-width: 991px){
+  .navbar-nav .nav-link{ padding:8px 0; }
+  .brand-strip{ gap:10px; }
+}
+@media (max-width: 575px){
+  .cards-section{ padding:40px 0; }
+  .quality-item, .process-item{ text-align:left; }
+  .feature-card ul{ margin-bottom:0; }
 }
