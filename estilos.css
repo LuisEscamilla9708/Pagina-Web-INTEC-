@@ -361,3 +361,34 @@ img{max-width:100%;height:auto;display:block;}
   .process-gallery::-webkit-scrollbar{ height: 0; }
   .process-gallery{ scrollbar-width: none; } /* Firefox */
 }
+
+
+/* ===== Footer centrado y apilado en todas las vistas ===== */
+.site-footer .container{
+  display: flex;
+  flex-direction: column;      /* apila los elementos */
+  align-items: center;         /* centra horizontalmente */
+  justify-content: center;     /* centra verticalmente el bloque */
+  text-align: center;          /* centra el texto */
+  gap: 6px;                    /* separación entre filas */
+}
+
+/* Orden: primero el aviso, luego el copyright, luego (si existe) el tercero */
+.site-footer .footer-center{ order: -1; }   /* “Aviso de privacidad” arriba */
+.site-footer .footer-left{   order:  0; }   /* © INTEC Seguridad debajo */
+.site-footer .footer-right{  order:  1; }   /* cualquier otro elemento al final */
+
+/* Opcional: tamaños y espaciado sutiles */
+.site-footer .footer-center a,
+.site-footer .footer-left span,
+.site-footer .footer-right a{
+  font-size: .95rem;
+}
+
+.site-footer .container > *{
+  width: 100%;
+  display: flex;
+  justify-content: center;     /* asegura centrado del contenido interno */
+}
+
+
