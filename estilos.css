@@ -392,3 +392,158 @@ img{max-width:100%;height:auto;display:block;}
 }
 
 
+/* =========================
+   1) CARRUSEL (galería) MÁS GRANDE
+   ========================= */
+/* MÓVIL */
+@media (max-width: 575.98px){
+  .process-gallery{
+    display: flex !important;
+    gap: 14px !important;
+    overflow-x: auto !important;
+    padding: 6px 4px !important;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  /* ↑ aumenta tamaño del ítem */
+  .process-pic{
+    flex: 0 0 210px !important;   /* antes 170px */
+    height: 150px !important;     /* antes 120px */
+    border-radius: 12px;
+    border: 1px solid rgba(10,20,48,.10);
+    box-shadow: 0 4px 10px rgba(16,24,40,.10);
+    overflow: hidden;
+    scroll-snap-align: start;
+    background: #fff;
+  }
+  .process-pic img{
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+  }
+  /* (opcional) oculta barra de scroll */
+  .process-gallery::-webkit-scrollbar{ height: 0; }
+  .process-gallery{ scrollbar-width: none; }
+}
+
+/* TABLET */
+@media (min-width: 576px) and (max-width: 991.98px){
+  .process-gallery{
+    display: flex !important;
+    gap: 16px !important;
+    overflow-x: auto !important;
+    padding: 8px 6px !important;
+  }
+  .process-pic{
+    flex: 0 0 240px !important;   /* un poco más grande en tablet */
+    height: 170px !important;
+  }
+}
+
+/* ESCRITORIO (si quieres que también crezcan un poco) */
+@media (min-width: 992px){
+  .process-pic{
+    /* comenta si no quieres cambiar escritorio */
+    /* width: 280px; height: 190px; */
+  }
+}
+
+/* =========================
+   2) REDUCIR ESPACIO EN BLANCO ENTRE SECCIONES
+   ========================= */
+/* El py-5 de Bootstrap mete 3rem arriba/abajo. Lo reducimos. */
+.access-section{
+  padding-top: 1.25rem !important;   /* antes 3rem por .py-5 */
+  padding-bottom: 1.75rem !important;
+}
+
+/* También baja un poco el “bottom” de la sección anterior */
+.cards-section{
+  padding-bottom: 1.25rem;           /* antes 56px (~3.5rem) */
+}
+.cards-section h1{
+  margin-bottom: 18px;               /* título un poquito más cerrado */
+}
+
+/* MÓVIL: aún más compacto */
+@media (max-width: 575.98px){
+  .access-section{
+    padding-top: .75rem !important;
+    padding-bottom: 1.25rem !important;
+  }
+  .cards-section{
+    padding-bottom: .75rem !important;
+  }
+  .section-title{
+    margin-top: 0 !important;
+  }
+}
+
+
+/* Nav más compacto en dispositivos */
+@media (max-width: 575.98px){
+  /* reduce el padding vertical del nav */
+  .navbar{
+    padding-top: .25rem !important;
+    padding-bottom: .25rem !important;
+  }
+
+  /* un poco menos de padding lateral */
+  .navbar .container-fluid,
+  .navbar .container{
+    padding-left: .5rem !important;
+    padding-right: .5rem !important;
+  }
+
+  /* logo un poquito más chico (antes 56px) */
+  .navbar-brand img{
+    height: 44px !important;
+    width: auto;
+  }
+
+  /* botón hamburguesa más compacto */
+  .navbar-toggler{
+    padding: .15rem .35rem !important;
+    font-size: 1rem !important;
+    line-height: 1 !important;
+  }
+
+  /* si el menú colapsado abre, que no aumente mucho la altura */
+  .navbar-collapse{
+    padding-top: .25rem;
+    padding-bottom: .25rem;
+  }
+}
+
+/* Opcional: también hacerlo un poco más compacto en tablet */
+@media (min-width: 576px) and (max-width: 991.98px){
+  .navbar{
+    padding-top: .35rem !important;
+    padding-bottom: .35rem !important;
+  }
+  .navbar-brand img{
+    height: 50px !important;
+  }
+}
+
+
+/* Reduce el espacio entre el hero y "Nuestros servicios" */
+.Imagen_Inicio{               /* por si algún contenedor tenía margen */
+  margin-bottom: 0 !important;
+}
+
+.cards-section{
+  padding-top: 36px;          /* antes 56px */
+}
+
+/* En móviles: aún más compacto */
+@media (max-width: 575.98px){
+  .cards-section{
+    padding-top: 18px !important; /* reduce el “blanco” arriba del h1 */
+  }
+  .cards-section h1{
+    margin-top: 0 !important;
+    margin-bottom: 16px !important; /* título más pegado a las cards */
+  }
+}
