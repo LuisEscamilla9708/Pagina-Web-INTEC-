@@ -324,43 +324,159 @@ img{max-width:100%;height:auto;display:block;}
 }
 
 
-/* ====== Galería de imágenes: versión compacta en CELULAR ====== */
-@media (max-width: 575.98px){
 
-  /* Carrusel horizontal compacto */
+/* === Carrusel de imágenes (tiles) AÚN MÁS GRANDES en móvil === */
+@media (max-width: 575.98px){
+  /* contenedor horizontal */
   .process-gallery{
-    display: flex !important;
-    gap: 12px !important;
-    overflow-x: auto !important;
-    padding: 6px 4px !important;
-    scroll-snap-type: x mandatory !important;
-    -webkit-overflow-scrolling: touch !important;
+    gap: 16px !important;          /* un poquito más de espacio */
+    padding: 8px 6px !important;
   }
 
-  /* Tarjeta de imagen más chica */
+  /* cada tile: más ancho y más alto */
   .process-pic{
-    flex: 0 0 170px !important;     /* ancho fijo de cada “card” de imagen */
-    height: 120px !important;       /* alto fijo para que se vean delgadas */
-    border-radius: 12px !important;
-    border: 1px solid rgba(10, 20, 48, .10) !important;
-    box-shadow: 0 4px 10px rgba(16,24,40,.10) !important;
-    overflow: hidden !important;
-    margin: 0 !important;
-    scroll-snap-align: start !important;
-    background: #fff !important;    /* evita transparencia */
+    flex: 0 0 260px !important;    /* antes 210px */
+    height: 180px !important;      /* antes 150px */
+    border-radius: 14px !important;
   }
 
   .process-pic img{
     width: 100% !important;
     height: 100% !important;
-    object-fit: cover !important;   /* llena el recuadro sin deformarse */
-    display: block !important;
+    object-fit: cover !important;
   }
-
-  /* (Opcional) ocultar scrollbars en móviles para look más limpio */
-  .process-gallery::-webkit-scrollbar{ height: 0; }
-  .process-gallery{ scrollbar-width: none; } /* Firefox */
 }
+
+/* TABLET: también un poco más grande para que no se vean chicos */
+@media (min-width: 576px) and (max-width: 991.98px){
+  .process-gallery{
+    gap: 18px !important;
+    padding: 10px 8px !important;
+  }
+  .process-pic{
+    flex: 0 0 300px !important;    /* antes 240px */
+    height: 200px !important;      /* antes 170px */
+  }
+}
+
+/* (Opcional) Escritorio: déjalo igual o súbele tantito */
+@media (min-width: 992px){
+  /* .process-pic{ width: 320px; height: 220px; } */
+}
+
+
+/* === Iconitos azules de “Soluciones de Control de Acceso” más grandes en móvil === */
+@media (max-width: 575.98px){
+  .feature-icon{
+    width: 44px !important;        /* antes 34px */
+    height: 44px !important;
+    font-size: 22px !important;    /* tamaño del ícono Bootstrap */
+    margin-bottom: 10px !important;
+  }
+}
+
+
+
+/* ===== Quality PRO ===== */
+.quality-section.pro{
+  background: linear-gradient(180deg,#dfe9ff 0%, #cfe0ff 100%);
+  --card-bg: rgba(255,255,255,.85);
+  --card-br: 16px;
+  --shadow: 0 10px 24px rgba(16,24,40,.10);
+}
+
+.quality-section.pro .section-title{
+  font-weight: 900;
+  letter-spacing: -.2px;
+}
+
+/* Tarjeta */
+.quality-card{
+  position: relative;
+  background: var(--card-bg);
+  border: 1px solid rgba(10,23,58,.08);
+  border-radius: var(--card-br);
+  padding: 20px 16px 18px 16px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(4px);
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.quality-card:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(16,24,40,.16);
+  border-color: rgba(10,23,58,.12);
+}
+
+/* Ícono redondo con gradiente */
+.icon-chip{
+  width: 60px;
+  height: 60px;
+  display: grid;
+  place-items: center;
+  margin-inline: auto;
+  margin-bottom: 12px;
+  border-radius: 18px;
+  color: #fff;
+  box-shadow: 0 10px 20px rgba(0,0,0,.15);
+}
+.icon-chip i{
+  font-size: 26px;
+  line-height: 1;
+}
+
+/* Gradientes por tarjeta (puedes ajustar) */
+.icon-chip.g1{
+  background: linear-gradient(135deg,#3a7bd5 0%, #00d2ff 100%);
+}
+.icon-chip.g2{
+  background: linear-gradient(135deg,#845EF7 0%, #5B8CFF 100%);
+}
+.icon-chip.g3{
+  background: linear-gradient(135deg,#22c55e 0%, #14b8a6 100%);
+}
+.icon-chip.g4{
+  background: linear-gradient(135deg,#ff7a59 0%, #f59e0b 100%);
+}
+
+/* Tipografía */
+.quality-card h6{
+  font-weight: 800;
+  margin: 6px 0 6px;
+}
+.quality-card p{
+  margin: 0;
+  color: #475467;
+}
+
+/* Responsive tweaks */
+@media (max-width: 575.98px){
+  .quality-card{ padding: 16px 14px; border-radius: 14px; }
+  .icon-chip{ width: 56px; height: 56px; border-radius: 16px; }
+  .icon-chip i{ font-size: 24px; }
+  .quality-card h6{ font-size: 1rem; margin-bottom: 4px; }
+  .quality-card p{ font-size: .93rem; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* ===== Footer centrado y apilado en todas las vistas ===== */
