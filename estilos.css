@@ -1,41 +1,48 @@
-/* --- Ajustes base y helpers responsivos --- */
+/* ===================== Base ===================== */
 :root{
   --primary:#0d6efd;
   --ink-500:#475467;
   --border-strong:#0a173a4d;
 }
-*{box-sizing:border-box;}
-img{max-width:100%;height:auto;display:block;}
+*{ box-sizing:border-box; }
+img{ max-width:100%; height:auto; display:block; }
 
-/* Hero */
+/* ===================== Hero ===================== */
 .Imagen_Inicio img{
   width:100%;
   height:auto;
-  display:block;
   object-fit:cover;
 }
 
-/* Navbar */
+/* ===================== Navbar ===================== */
 .navbar-brand img{ height:56px; width:auto; }
 .navbar-nav .nav-link{ font-weight:600; color:#000; font-size:18px; }
 .navbar-nav .nav-link:hover{ color:#0056b3; }
 
-/* ======================= CARDS (Servicios) ======================= */
+/* Nav compacto móvil / tablet */
+@media (max-width: 575.98px){
+  .navbar{ padding-top:.25rem !important; padding-bottom:.25rem !important; }
+  .navbar .container-fluid{ padding-left:.5rem !important; padding-right:.5rem !important; }
+  .navbar-brand img{ height:44px !important; }
+  .navbar-toggler{ padding:.15rem .35rem !important; font-size:1rem !important; line-height:1 !important; }
+}
+@media (min-width:576px) and (max-width:991.98px){
+  .navbar{ padding-top:.35rem !important; padding-bottom:.35rem !important; }
+  .navbar-brand img{ height:50px !important; }
+}
+
+/* ===================== Cards (Servicios) ===================== */
 .cards-section{ padding:56px 0; }
 .cards-section h1{
   font-size:clamp(2rem,3.2vw,2.6rem);
   font-weight:800;
   margin-bottom:28px;
 }
-
-/* Layout */
 .cards-container{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:24px;
 }
-
-/* Card base */
 .cards-section .card{
   background:#fff;
   border:1px solid var(--border-strong);
@@ -49,71 +56,67 @@ img{max-width:100%;height:auto;display:block;}
   box-shadow:0 14px 30px rgba(16,24,40,.12);
   border-color:var(--border-strong);
 }
-
-/* Imagen */
 .cards-section .card-img{
   width:100%;
-  height:170px;                      /* altura base (desktop) */
+  height:170px;
   object-fit:contain;
   background:linear-gradient(180deg,#f9fafb,#f3f4f6);
 }
-
-/* Texto y botón */
 .cards-section .card-body{ padding:18px 18px 0; }
 .cards-section .card-title{ font-size:1.1rem; font-weight:700; margin:4px 0 8px; }
 .cards-section .card-text{ color:var(--ink-500); line-height:1.55; margin:0; }
 .cards-section .card-actions{ padding:16px 18px 20px; display:flex; }
 .cards-section .btn{
-  padding:10px 16px;
-  font-weight:600;
-  border-radius:10px;
+  padding:10px 16px; font-weight:600; border-radius:10px;
 }
 .cards-section .btn.btn-primary{
-  background:var(--primary);
-  color:#fff;
+  background:var(--primary); color:#fff;
   box-shadow:0 4px 10px rgba(13,110,253,.25);
 }
 .cards-section .btn.btn-primary:hover{
-  background:#0b5ed7;
-  box-shadow:0 6px 14px rgba(13,110,253,.35);
+  background:#0b5ed7; box-shadow:0 6px 14px rgba(13,110,253,.35);
 }
 
-/* ====== CARDS: versión compacta en móviles ====== */
-@media (max-width: 575.98px){
+/* Cards compactas en móvil */
+@media (max-width:575.98px){
+  .cards-section{ padding-top:18px !important; padding-bottom:.75rem !important; }
+  .cards-section .container{ padding-left:10px !important; padding-right:10px !important; }
+  .cards-section h1{ font-size:1.45rem !important; margin-bottom:16px !important; }
 
-  .cards-section .container{
-    padding-left:12px;
-    padding-right:12px;
+  .cards-section article.card{
+    max-width:360px !important;
+    margin-inline:auto !important;
   }
-
-  .cards-section h1{
-    font-size:1.6rem;
-    margin-bottom:18px;
-  }
-
-  .cards-container{
-    gap:14px;
-    grid-template-columns:1fr;         /* 1 por fila */
-  }
-
   .cards-section .card{
-    border-radius:12px;
-    box-shadow:0 4px 10px rgba(16,24,40,.08);
+    display:grid !important;
+    grid-template-columns:110px 1fr !important;
+    align-items:center !important;
+    gap:10px !important;
+    padding:10px !important;
+    border-radius:10px !important;
+    box-shadow:0 3px 8px rgba(16,24,40,.07) !important;
   }
-
   .cards-section .card-img{
-    height:120px;                       /* mucho más compacta */
-    background:linear-gradient(180deg,#fbfcff,#f1f4fb);
+    grid-column:1/2 !important;
+    height:84px !important;
+    background:transparent !important;
+    border-radius:8px !important;
   }
-
-  .cards-section .card-body{ padding:12px 12px 0; }
-  .cards-section .card-title{ font-size:1rem; margin:2px 0 6px; }
-  .cards-section .card-text{ font-size:.92rem; line-height:1.45; }
-  .cards-section .card-actions{ padding:12px; }
-  .cards-section .btn{ padding:9px 12px; border-radius:9px; font-size:.95rem; }
+  .cards-section .card-body{
+    grid-column:2/3 !important; padding:0 !important;
+  }
+  .cards-section .card-title{
+    font-size:.95rem !important; margin:0 0 4px !important; line-height:1.15 !important;
+  }
+  .cards-section .card-text{
+    font-size:.86rem !important; line-height:1.35 !important; margin:0 0 6px !important;
+  }
+  .cards-section .card-actions{ grid-column:2/3 !important; padding:0 !important; justify-content:flex-start !important; }
+  .cards-section .btn{ padding:7px 11px !important; font-size:.88rem !important; border-radius:8px !important; }
+  .cards-container{ gap:10px !important; }
 }
 
-/* 576–767px: teléfonos grandes / mini tablets */
+/* Teléfono grande / mini tablet */
 @media (min-width:576px) and (max-width:767.98px){
   .cards-container{ gap:18px; }
   .cards-section .card-img{ height:150px; }
@@ -124,16 +127,14 @@ img{max-width:100%;height:auto;display:block;}
   .cards-section .btn{ padding:10px 14px; font-size:.98rem; }
 }
 
-/* =================== Acceso / Interfón / Cámaras =================== */
+/* ===== Reducir espacio entre Hero y Cards ===== */
+.Imagen_Inicio{ margin-bottom:0 !important; }
+.cards-section{ padding-top:36px; }
+
+/* ===================== Soluciones de Acceso ===================== */
 .section-title{ font-weight:800; letter-spacing:-.2px; }
-.access-photo img{
-  border-radius:18px;
-  box-shadow:0 10px 24px rgba(16,24,40,.12);
-}
-.brand-strip{
-  display:flex; align-items:center; gap:18px; flex-wrap:wrap;
-  margin-top:18px; color:#475467; font-size:.9rem;
-}
+.access-photo img{ border-radius:18px; box-shadow:0 10px 24px rgba(16,24,40,.12); }
+.brand-strip{ display:flex; align-items:center; gap:18px; flex-wrap:wrap; margin-top:18px; color:#475467; font-size:.9rem; }
 .brand-strip img{ opacity:.9; height:clamp(36px,3.2vw,44px); }
 
 .feature-card{
@@ -142,64 +143,108 @@ img{max-width:100%;height:auto;display:block;}
   box-shadow:0 6px 16px rgba(16,24,40,.06);
 }
 .feature-icon{
-  width:34px;height:34px;border-radius:10px;display:grid;place-items:center;
-  background:#e8f0ff;color:#0d6efd;margin-bottom:8px;font-size:18px;
+  width:34px; height:34px; border-radius:10px; display:grid; place-items:center;
+  background:#e8f0ff; color:#0d6efd; margin-bottom:8px; font-size:18px;
 }
 .feature-card ul{ padding-left:18px; }
 .btn.btn-outline-primary{ border-color:#0d6efd; }
 
-/* ================== Calidad: fondo azul más fuerte ================== */
-.quality-section{
-  background:linear-gradient(180deg,#dbe7ff 0%,#c7d7ff 100%);
+/* Menos blanco en la sección */
+.access-section{ padding-top:1.25rem !important; padding-bottom:1.75rem !important; }
+@media (max-width:575.98px){
+  .access-section{ padding-top:.75rem !important; padding-bottom:1.25rem !important; }
+  .feature-icon{ width:44px !important; height:44px !important; font-size:22px !important; margin-bottom:10px !important; }
 }
-.quality-item{
-  background:#fff; border:1px solid var(--border-strong);
-  border-radius:14px; padding:18px; text-align:center; height:100%;
-  box-shadow:0 6px 16px rgba(16,24,40,.06);
-}
-.quality-item i{ font-size:28px; color:#0d6efd; margin-bottom:8px; display:block; }
-.quality-item h6{ font-weight:700; margin-bottom:6px; }
 
-/* ====================== Cómo trabajamos (cards) ===================== */
-.process-item{
-  background:#fff; border:1px solid var(--border-strong);
-  border-radius:14px; padding:18px; text-align:center; height:100%;
-  box-shadow:0 6px 16px rgba(16,24,40,.06);
+/* ===================== Quality (estilo PRO) ===================== */
+.quality-section.pro{
+  background:linear-gradient(180deg,#dfe9ff 0%, #cfe0ff 100%);
+  --card-bg:rgba(255,255,255,.85);
+  --card-br:16px;
+  --shadow:0 10px 24px rgba(16,24,40,.10);
 }
-.process-item i{ font-size:30px; color:#0d6efd; margin-bottom:8px; display:block; }
-.process-item h6{ font-weight:700; margin-bottom:6px; }
+.quality-section.pro .section-title{ font-weight:900; letter-spacing:-.2px; }
 
-/* ========== Galería “Cómo trabajamos” solo imágenes ========== */
+.quality-card{
+  position:relative;
+  background:var(--card-bg);
+  border:1px solid rgba(10,23,58,.08);
+  border-radius:var(--card-br);
+  padding:20px 16px 18px 16px;
+  text-align:center;
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(4px);
+  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.quality-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 16px 36px rgba(16,24,40,.16);
+  border-color:rgba(10,23,58,.12);
+}
+.icon-chip{
+  width:60px; height:60px; display:grid; place-items:center;
+  margin-inline:auto; margin-bottom:12px; border-radius:18px; color:#fff;
+  box-shadow:0 10px 20px rgba(0,0,0,.15);
+}
+.icon-chip i{ font-size:26px; line-height:1; }
+.icon-chip.g1{ background:linear-gradient(135deg,#3a7bd5 0%, #00d2ff 100%); }
+.icon-chip.g2{ background:linear-gradient(135deg,#845EF7 0%, #5B8CFF 100%); }
+.icon-chip.g3{ background:linear-gradient(135deg,#22c55e 0%, #14b8a6 100%); }
+.icon-chip.g4{ background:linear-gradient(135deg,#ff7a59 0%, #f59e0b 100%); }
+.quality-card h6{ font-weight:800; margin:6px 0 6px; }
+.quality-card p{ margin:0; color:#475467; }
+
+@media (max-width:575.98px){
+  .quality-card{ padding:16px 14px; border-radius:14px; }
+  .icon-chip{ width:56px; height:56px; border-radius:16px; }
+  .icon-chip i{ font-size:24px; }
+  .quality-card h6{ font-size:1rem; margin-bottom:4px; }
+  .quality-card p{ font-size:.93rem; }
+}
+
+/* ===================== Galería / Carrusel (UNIFICADO) ===================== */
+/* Escritorio: grilla amplia */
 .process-gallery{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-  gap:20px;
+  grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+  gap:22px;
 }
 .process-pic{
-  margin:0;
   border-radius:16px;
-  border:1px solid #0a143017;
-  overflow:hidden;
+  border:1px solid rgba(10,20,48,.10);
   box-shadow:0 8px 18px rgba(16,24,40,.10);
-  background:#fff;
+  overflow:hidden;
+  aspect-ratio:16/9;            /* más grande y horizontal */
 }
 .process-pic img{
-  width:100%;
-  height:100%;
-  aspect-ratio:4 / 3;
-  object-fit:cover;
-  display:block;
-  transition:transform .35s ease;
-}
-.process-pic:hover img{ transform:scale(1.04); }
-@media (max-width:575.98px){ .process-gallery{ gap:14px; } }
-
-/* ======================== CTA (contacto) ======================== */
-.cta-card{ background:#ffffff; border:1px solid #e9eef6; }
-.cta-photo img{
-  width:100%; height:100%; max-height:320px;
+  width:100%; height:100%;
   object-fit:cover; display:block;
 }
+
+/* Tablet: carrusel horizontal grande */
+@media (min-width:576px) and (max-width:991.98px){
+  .process-gallery{
+    display:flex; gap:18px; overflow-x:auto;
+    padding:8px 6px; scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+  }
+  .process-pic{ flex:0 0 360px; height:240px; scroll-snap-align:start; }
+}
+
+/* Móvil: tiles grandes con scroll horizontal */
+@media (max-width:575.98px){
+  .process-gallery{
+    display:flex !important; gap:16px !important; overflow-x:auto !important;
+    padding:8px 6px !important; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch;
+  }
+  .process-pic{ flex:0 0 310px !important; height:210px !important; border-radius:14px !important; scroll-snap-align:start !important; }
+  .process-gallery::-webkit-scrollbar{ height:0; }
+  .process-gallery{ scrollbar-width:none; }
+}
+
+/* ===================== CTA (Contacto) ===================== */
+.cta-card{ background:#ffffff; border:1px solid #e9eef6; }
+.cta-photo img{ width:100%; height:100%; max-height:320px; object-fit:cover; }
 .cta-title{ font-weight:800; letter-spacing:-.3px; }
 .cta-subtitle{ color:#475467; margin:0; }
 .cta-btn-whatsapp{
@@ -213,453 +258,42 @@ img{max-width:100%;height:auto;display:block;}
   padding:12px 18px; border-radius:12px; border:none;
 }
 .cta-btn-call:hover{ filter:brightness(1.05); color:#fff; }
-
-/* Badges CTA */
-.cta-badges{
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:8px 16px; margin:0;
-}
-.cta-badges li{ display:flex; align-items:center; gap:10px; color:#344054; font-weight:600; }
-.cta-badges i{ color:#2563eb; font-size:1.1rem; }
-
-/* CTA wrap (fondo azul) */
-.cta-wrap{
-  background:#dbe7ff;
-  padding:28px 0;
-  border-top:1px solid #d0dcfd;
-  border-bottom:1px solid #d0dcfd;
-}
-@media (min-width:992px){ .cta-wrap{ padding:40px 0; } }
-
-/* ============================ Footer ============================ */
-.site-footer{ background:#0b1d35; color:#e6eefc; }
-.site-footer .footer-logo{ height:28px; width:auto; filter:brightness(1.2) contrast(1.1); }
-.site-footer .container{ border-top:1px solid rgba(255,255,255,.08); }
-.site-footer a:hover{ text-decoration:underline; }
-
-/* ========================= Ajustes responsivos ========================= */
 @media (max-width:575.98px){
   .cta-title{ font-size:1.5rem; }
   .cta-photo img{ max-height:220px; }
 }
-@media (max-width:991.98px){
-  .navbar-nav .nav-link{ padding:8px 0; }
-  .brand-strip{ gap:10px; }
-}
 
-/* ====== MODO COMPACTO: cards MUCHO más chicas en celular ====== */
-@media (max-width: 575.98px){
-
-  /* Menos aire de la sección */
-  .cards-section .container{
-    padding-left: 10px !important;
-    padding-right: 10px !important;
-  }
-
-  .cards-section h1{
-    font-size: 1.45rem !important;
-    margin-bottom: 14px !important;
-  }
-
-  /* Limitar ancho de cada card y centrarla (se verá más “chica”) */
-  .cards-section article.card{
-    max-width: 360px !important;    /* ↓ ajusta si la quieres aún más angosta: 340px, 320px… */
-    margin-inline: auto !important; /* centrado */
-  }
-
-  /* Forzamos layout horizontal súper compacto (2 columnas) */
-  .cards-section .card{
-    display: grid !important;
-    grid-template-columns: 110px 1fr !important;  /* miniatura + cuerpo */
-    align-items: center !important;
-    gap: 10px !important;
-    padding: 10px !important;
-    border-radius: 10px !important;
-    box-shadow: 0 3px 8px rgba(16,24,40,.07) !important;
-  }
-
-  /* Miniatura: fija y pequeña (izquierda) */
-  .cards-section .card-img{
-    grid-column: 1 / 2 !important;
-    width: 100% !important;
-    height: 84px !important;        /* ↓ baja a 76px si la quieres todavía más delgada */
-    object-fit: contain !important;
-    background: transparent !important;
-    border-radius: 8px !important;
-  }
-
-  /* Contenido (título + texto) a la derecha, sin rellenos extra */
-  .cards-section .card-body{
-    grid-column: 2 / 3 !important;
-    padding: 0 !important;
-  }
-  .cards-section .card-title{
-    font-size: .95rem !important;
-    margin: 0 0 4px !important;
-    line-height: 1.15 !important;
-  }
-  .cards-section .card-text{
-    font-size: .86rem !important;
-    line-height: 1.35 !important;
-    margin: 0 0 6px !important;
-  }
-
-  /* Botón compacto y alineado a la izquierda, debajo del texto */
-  .cards-section .card-actions{
-    grid-column: 2 / 3 !important;
-    padding: 0 !important;
-    justify-content: flex-start !important;
-  }
-  .cards-section .btn{
-    padding: 7px 11px !important;
-    font-size: .88rem !important;
-    border-radius: 8px !important;
-    min-width: auto !important;
-  }
-
-  /* Separación entre cards más corta */
-  .cards-container{
-    gap: 10px !important;
-  }
-}
-
-
-
-/* === Carrusel de imágenes (tiles) AÚN MÁS GRANDES en móvil === */
-@media (max-width: 575.98px){
-  /* contenedor horizontal */
-  .process-gallery{
-    gap: 16px !important;          /* un poquito más de espacio */
-    padding: 8px 6px !important;
-  }
-
-  /* cada tile: más ancho y más alto */
-  .process-pic{
-    flex: 0 0 260px !important;    /* antes 210px */
-    height: 180px !important;      /* antes 150px */
-    border-radius: 14px !important;
-  }
-
-  .process-pic img{
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-  }
-}
-
-/* TABLET: también un poco más grande para que no se vean chicos */
-@media (min-width: 576px) and (max-width: 991.98px){
-  .process-gallery{
-    gap: 18px !important;
-    padding: 10px 8px !important;
-  }
-  .process-pic{
-    flex: 0 0 300px !important;    /* antes 240px */
-    height: 200px !important;      /* antes 170px */
-  }
-}
-
-/* (Opcional) Escritorio: déjalo igual o súbele tantito */
-@media (min-width: 992px){
-  /* .process-pic{ width: 320px; height: 220px; } */
-}
-
-
-/* === Iconitos azules de “Soluciones de Control de Acceso” más grandes en móvil === */
-@media (max-width: 575.98px){
-  .feature-icon{
-    width: 44px !important;        /* antes 34px */
-    height: 44px !important;
-    font-size: 22px !important;    /* tamaño del ícono Bootstrap */
-    margin-bottom: 10px !important;
-  }
-}
-
-
-
-/* ===== Quality PRO ===== */
-.quality-section.pro{
-  background: linear-gradient(180deg,#dfe9ff 0%, #cfe0ff 100%);
-  --card-bg: rgba(255,255,255,.85);
-  --card-br: 16px;
-  --shadow: 0 10px 24px rgba(16,24,40,.10);
-}
-
-.quality-section.pro .section-title{
-  font-weight: 900;
-  letter-spacing: -.2px;
-}
-
-/* Tarjeta */
-.quality-card{
-  position: relative;
-  background: var(--card-bg);
-  border: 1px solid rgba(10,23,58,.08);
-  border-radius: var(--card-br);
-  padding: 20px 16px 18px 16px;
-  text-align: center;
-  box-shadow: var(--shadow);
-  backdrop-filter: blur(4px);
-  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-}
-.quality-card:hover{
-  transform: translateY(-6px);
-  box-shadow: 0 16px 36px rgba(16,24,40,.16);
-  border-color: rgba(10,23,58,.12);
-}
-
-/* Ícono redondo con gradiente */
-.icon-chip{
-  width: 60px;
-  height: 60px;
-  display: grid;
-  place-items: center;
-  margin-inline: auto;
-  margin-bottom: 12px;
-  border-radius: 18px;
-  color: #fff;
-  box-shadow: 0 10px 20px rgba(0,0,0,.15);
-}
-.icon-chip i{
-  font-size: 26px;
-  line-height: 1;
-}
-
-/* Gradientes por tarjeta (puedes ajustar) */
-.icon-chip.g1{
-  background: linear-gradient(135deg,#3a7bd5 0%, #00d2ff 100%);
-}
-.icon-chip.g2{
-  background: linear-gradient(135deg,#845EF7 0%, #5B8CFF 100%);
-}
-.icon-chip.g3{
-  background: linear-gradient(135deg,#22c55e 0%, #14b8a6 100%);
-}
-.icon-chip.g4{
-  background: linear-gradient(135deg,#ff7a59 0%, #f59e0b 100%);
-}
-
-/* Tipografía */
-.quality-card h6{
-  font-weight: 800;
-  margin: 6px 0 6px;
-}
-.quality-card p{
-  margin: 0;
-  color: #475467;
-}
-
-/* Responsive tweaks */
-@media (max-width: 575.98px){
-  .quality-card{ padding: 16px 14px; border-radius: 14px; }
-  .icon-chip{ width: 56px; height: 56px; border-radius: 16px; }
-  .icon-chip i{ font-size: 24px; }
-  .quality-card h6{ font-size: 1rem; margin-bottom: 4px; }
-  .quality-card p{ font-size: .93rem; }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ===== Footer centrado y apilado en todas las vistas ===== */
+/* ===================== Footer centrado ===================== */
+.site-footer{ background:#0b1d35; color:#e6eefc; }
 .site-footer .container{
-  display: flex;
-  flex-direction: column;      /* apila los elementos */
-  align-items: center;         /* centra horizontalmente */
-  justify-content: center;     /* centra verticalmente el bloque */
-  text-align: center;          /* centra el texto */
-  gap: 6px;                    /* separación entre filas */
+  border-top:1px solid rgba(255,255,255,.08);
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center; gap:6px;
 }
-
-/* Orden: primero el aviso, luego el copyright, luego (si existe) el tercero */
-.site-footer .footer-center{ order: -1; }   /* “Aviso de privacidad” arriba */
-.site-footer .footer-left{   order:  0; }   /* © INTEC Seguridad debajo */
-.site-footer .footer-right{  order:  1; }   /* cualquier otro elemento al final */
-
-/* Opcional: tamaños y espaciado sutiles */
+.site-footer .footer-center{ order:-1; }  /* Aviso arriba */
+.site-footer .footer-left{ order:0; }
+.site-footer .footer-right{ order:1; }
 .site-footer .footer-center a,
 .site-footer .footer-left span,
-.site-footer .footer-right a{
-  font-size: .95rem;
+.site-footer .footer-right a{ font-size:.95rem; }
+.site-footer .container > *{ width:100%; display:flex; justify-content:center; }
+
+/* ===== CTA (Contacto) – franja con fondo azul ===== */
+.cta-wrap{
+  background: #dbe7ff;              /* fondo azul claro */
+  padding: 28px 0;
+  border-top: 1px solid #d0dcfd;
+  border-bottom: 1px solid #d0dcfd;
 }
 
-.site-footer .container > *{
-  width: 100%;
-  display: flex;
-  justify-content: center;     /* asegura centrado del contenido interno */
-}
-
-
-/* =========================
-   1) CARRUSEL (galería) MÁS GRANDE
-   ========================= */
-/* MÓVIL */
-@media (max-width: 575.98px){
-  .process-gallery{
-    display: flex !important;
-    gap: 14px !important;
-    overflow-x: auto !important;
-    padding: 6px 4px !important;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-  }
-  /* ↑ aumenta tamaño del ítem */
-  .process-pic{
-    flex: 0 0 210px !important;   /* antes 170px */
-    height: 150px !important;     /* antes 120px */
-    border-radius: 12px;
-    border: 1px solid rgba(10,20,48,.10);
-    box-shadow: 0 4px 10px rgba(16,24,40,.10);
-    overflow: hidden;
-    scroll-snap-align: start;
-    background: #fff;
-  }
-  .process-pic img{
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    display: block !important;
-  }
-  /* (opcional) oculta barra de scroll */
-  .process-gallery::-webkit-scrollbar{ height: 0; }
-  .process-gallery{ scrollbar-width: none; }
-}
-
-/* TABLET */
-@media (min-width: 576px) and (max-width: 991.98px){
-  .process-gallery{
-    display: flex !important;
-    gap: 16px !important;
-    overflow-x: auto !important;
-    padding: 8px 6px !important;
-  }
-  .process-pic{
-    flex: 0 0 240px !important;   /* un poco más grande en tablet */
-    height: 170px !important;
-  }
-}
-
-/* ESCRITORIO (si quieres que también crezcan un poco) */
 @media (min-width: 992px){
-  .process-pic{
-    /* comenta si no quieres cambiar escritorio */
-    /* width: 280px; height: 190px; */
-  }
+  .cta-wrap{ padding: 40px 0; }
 }
 
-/* =========================
-   2) REDUCIR ESPACIO EN BLANCO ENTRE SECCIONES
-   ========================= */
-/* El py-5 de Bootstrap mete 3rem arriba/abajo. Lo reducimos. */
-.access-section{
-  padding-top: 1.25rem !important;   /* antes 3rem por .py-5 */
-  padding-bottom: 1.75rem !important;
-}
-
-/* También baja un poco el “bottom” de la sección anterior */
-.cards-section{
-  padding-bottom: 1.25rem;           /* antes 56px (~3.5rem) */
-}
-.cards-section h1{
-  margin-bottom: 18px;               /* título un poquito más cerrado */
-}
-
-/* MÓVIL: aún más compacto */
-@media (max-width: 575.98px){
-  .access-section{
-    padding-top: .75rem !important;
-    padding-bottom: 1.25rem !important;
-  }
-  .cards-section{
-    padding-bottom: .75rem !important;
-  }
-  .section-title{
-    margin-top: 0 !important;
-  }
-}
-
-
-/* Nav más compacto en dispositivos */
-@media (max-width: 575.98px){
-  /* reduce el padding vertical del nav */
-  .navbar{
-    padding-top: .25rem !important;
-    padding-bottom: .25rem !important;
-  }
-
-  /* un poco menos de padding lateral */
-  .navbar .container-fluid,
-  .navbar .container{
-    padding-left: .5rem !important;
-    padding-right: .5rem !important;
-  }
-
-  /* logo un poquito más chico (antes 56px) */
-  .navbar-brand img{
-    height: 44px !important;
-    width: auto;
-  }
-
-  /* botón hamburguesa más compacto */
-  .navbar-toggler{
-    padding: .15rem .35rem !important;
-    font-size: 1rem !important;
-    line-height: 1 !important;
-  }
-
-  /* si el menú colapsado abre, que no aumente mucho la altura */
-  .navbar-collapse{
-    padding-top: .25rem;
-    padding-bottom: .25rem;
-  }
-}
-
-/* Opcional: también hacerlo un poco más compacto en tablet */
-@media (min-width: 576px) and (max-width: 991.98px){
-  .navbar{
-    padding-top: .35rem !important;
-    padding-bottom: .35rem !important;
-  }
-  .navbar-brand img{
-    height: 50px !important;
-  }
-}
-
-
-/* Reduce el espacio entre el hero y "Nuestros servicios" */
-.Imagen_Inicio{               /* por si algún contenedor tenía margen */
-  margin-bottom: 0 !important;
-}
-
-.cards-section{
-  padding-top: 36px;          /* antes 56px */
-}
-
-/* En móviles: aún más compacto */
-@media (max-width: 575.98px){
-  .cards-section{
-    padding-top: 18px !important; /* reduce el “blanco” arriba del h1 */
-  }
-  .cards-section h1{
-    margin-top: 0 !important;
-    margin-bottom: 16px !important; /* título más pegado a las cards */
-  }
+/* Tarjeta interna (se mantiene blanca) */
+.cta-card{
+  background: #ffffff;
+  border: 1px solid #e9eef6;
+  box-shadow: 0 8px 18px rgba(16,24,40,.08);
+  border-radius: 16px;
 }
