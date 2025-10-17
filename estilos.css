@@ -204,43 +204,72 @@ img{ max-width:100%; height:auto; display:block; }
 
 /* ===================== Galería / Carrusel (UNIFICADO) ===================== */
 /* Escritorio: grilla amplia */
+/* Escritorio */
 .process-gallery{
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
-  gap:22px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* antes 300px */
+  gap: 20px;
+ 
 }
+
 .process-pic{
-  border-radius:16px;
-  border:1px solid rgba(10,20,48,.10);
-  box-shadow:0 8px 18px rgba(16,24,40,.10);
-  overflow:hidden;
-  aspect-ratio:16/9;            /* más grande y horizontal */
+  border-radius: 16px;
+  border: 1px solid rgba(10,20,48,.10);
+  box-shadow: 0 10px 22px rgba(16,24,40,.10);
+  overflow: hidden;
+  aspect-ratio: 4 / 3;                 /* más alta para que quepa la imagen */
+  background: linear-gradient(180deg,#d5d7da 0%, #90aae7fb 100%);
+  padding: 10px;                       /* deja aire para contain */
 }
+
+/* MUY IMPORTANTE: mostrar la imagen completa */
 .process-pic img{
-  width:100%; height:100%;
-  object-fit:cover; display:block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain !important;      /* antes estaba en cover, esto lo corrige */
+  display: block;
 }
 
-/* Tablet: carrusel horizontal grande */
-@media (min-width:576px) and (max-width:991.98px){
+/* Tablet */
+@media (min-width: 576px) and (max-width: 991.98px){
   .process-gallery{
-    display:flex; gap:18px; overflow-x:auto;
-    padding:8px 6px; scroll-snap-type:x mandatory;
-    -webkit-overflow-scrolling:touch;
+    display: flex;
+    gap: 22px;
+    overflow-x: auto;
+    padding: 10px 8px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
   }
-  .process-pic{ flex:0 0 360px; height:240px; scroll-snap-align:start; }
+  .process-pic{
+    flex: 0 0 420px;                   /* más ancha */
+    height: 280px;                     /* más alta */
+    scroll-snap-align: start;
+  }
 }
 
-/* Móvil: tiles grandes con scroll horizontal */
-@media (max-width:575.98px){
+/* Móvil */
+@media (max-width: 575.98px){
   .process-gallery{
-    display:flex !important; gap:16px !important; overflow-x:auto !important;
-    padding:8px 6px !important; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch;
+    display: flex !important;
+    gap: 18px !important;
+    overflow-x: auto !important;
+    padding: 10px 6px !important;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
   }
-  .process-pic{ flex:0 0 310px !important; height:210px !important; border-radius:14px !important; scroll-snap-align:start !important; }
-  .process-gallery::-webkit-scrollbar{ height:0; }
-  .process-gallery{ scrollbar-width:none; }
+  .process-pic{
+    flex: 0 0 360px !important;        /* antes 310px */
+    height: 240px !important;          /* antes 210px */
+    border-radius: 14px !important;
+    scroll-snap-align: start !important;
+  }
+  .process-gallery::-webkit-scrollbar{ height: 0; }
+  .process-gallery{ scrollbar-width: none; }
 }
+
+
+
+
 
 /* ===================== CTA (Contacto) ===================== */
 .cta-card{ background:#ffffff; border:1px solid #e9eef6; }
@@ -248,16 +277,16 @@ img{ max-width:100%; height:auto; display:block; }
 .cta-title{ font-weight:800; letter-spacing:-.3px; }
 .cta-subtitle{ color:#475467; margin:0; }
 .cta-btn-whatsapp{
-  background:#22c55e; color:#062c13; font-weight:700;
+  background:#2cd369; color:#062c13; font-weight:700;
   padding:12px 18px; border-radius:12px; border:none;
-  box-shadow:0 10px 20px rgba(34,197,94,.25);
+  box-shadow:0 10px 20px rgba(46, 202, 103, 0.25);
 }
 .cta-btn-whatsapp:hover{ filter:brightness(1.05); color:#062c13; }
 .cta-btn-call{
-  background:#155e75; color:#fff; font-weight:700;
+  background:#155e75; color:#f3f1f1; font-weight:700;
   padding:12px 18px; border-radius:12px; border:none;
 }
-.cta-btn-call:hover{ filter:brightness(1.05); color:#fff; }
+.cta-btn-call:hover{ filter:brightness(1.05); color:#000000; }
 @media (max-width:575.98px){
   .cta-title{ font-size:1.5rem; }
   .cta-photo img{ max-height:220px; }
@@ -316,3 +345,21 @@ img{ max-width:100%; height:auto; display:block; }
     font-size: .86rem;        /* el tamaño que querías en celular */
   }
 }
+
+/* -----------------Efectos de las imagenes ----------------------------*/
+
+.process-pic{ position: relative; overflow: hidden; }
+.process-pic::after{
+  content:"";
+  position:absolute; inset:-50% -20%;
+  background: linear-gradient(120deg, transparent 40%, rgba(241, 221, 221, 0.45) 50%, transparent 60%);
+  transform: translateX(-120%) rotate(12deg);
+  transition: transform .6s ease;
+  pointer-events:none;
+}
+.process-pic:hover::after{
+  transform: translateX(20%) rotate(12deg);
+}
+
+
+/* -----------------Efectos de las imagenes ----------------------------*/
