@@ -297,3 +297,22 @@ img{ max-width:100%; height:auto; display:block; }
   box-shadow: 0 8px 18px rgba(16,24,40,.08);
   border-radius: 16px;
 }
+
+.cards-section .card .card-body ul.card-bullets{
+  margin: 0;
+  padding-left: 1.05rem;      /* sangría del bullet */
+  list-style: disc;
+}
+
+.cards-section .card .card-body ul.card-bullets li{
+  color: var(--ink-500);
+  line-height: 1.45;
+  font-size: .95rem;          /* desktop/tablet */
+}
+
+/* Móvil: mismo tamaño en TODAS */
+@media (max-width: 575.98px){
+  .cards-section .card .card-body ul.card-bullets li{
+    font-size: .86rem;        /* el tamaño que querías en celular */
+  }
+}
