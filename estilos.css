@@ -358,6 +358,10 @@ img{ max-width:100%; height:auto; display:block; }
   display: grid;
   place-items: center;
   margin-bottom: 0;
+
+  min-height: 72vh;                 /* o 60–68vh si quieres menos alto */
+  background-size: cover;
+  background-position: center;      /* escritorio centrado */
 }
 
 .hero-landing .hero__bg{
@@ -407,11 +411,17 @@ img{ max-width:100%; height:auto; display:block; }
 /* En móviles puedes usar otra foto recortada para que “encuadre” mejor */
 @media (max-width: 575.98px){
   .hero-landing{
-    min-height: clamp(420px, 70vh, 560px);
+     min-height: 62vh;               /* menos alto */
+    background-position: 35% center;/* Mueve el punto de enfoque.
+                                        Prueba 25% / 35% / 65% según tu foto */
   }
   .hero-landing .hero__bg{
     background-image: url("imagenes/cerrar-la-mano-usando-el-dispositivo.jpg"); 
     background-position: 60% center;                    /* ajusta el encuadre */
   }
-}
 
+
+  .hero-landing .hero-title{ font-size: clamp(1.5rem, 5.5vw, 2rem); }
+  .hero-landing .hero-sub  { font-size: clamp(.9rem, 3.6vw, 1rem); }
+}
+ 
