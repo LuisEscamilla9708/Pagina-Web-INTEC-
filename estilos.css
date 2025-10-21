@@ -426,5 +426,5 @@ img{ max-width:100%; height:auto; display:block; }
 
   .hero-landing .hero-title{ font-size: clamp(1.5rem, 5.5vw, 2rem); }
   .hero-landing .hero-sub  { font-size: clamp(.9rem, 3.6vw, 1rem); }
-}
+
  
