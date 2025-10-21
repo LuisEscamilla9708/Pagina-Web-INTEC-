@@ -441,3 +441,13 @@ img{ max-width:100%; height:auto; display:block; }
     border-radius: 9px;
   }
 }
+
+
+.btn-call{
+  display:inline-flex; align-items:center; gap:10px;
+  background:#f3f3f327; color:#1d2731; font-weight:700;
+  padding:.6rem 1rem; border:none; border-radius:12px;
+  box-shadow:0 8px 18px rgba(51, 50, 50, 0.25); text-decoration:none;
+}
+.btn-call:hover{ filter:brightness(1.05); color:#0b1d35; }
+.call-icon{ width:20px; height:20px; object-fit:contain; }
