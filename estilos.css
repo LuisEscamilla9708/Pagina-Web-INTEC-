@@ -202,74 +202,88 @@ img{ max-width:100%; height:auto; display:block; }
   .quality-card p{ font-size:.93rem; }
 }
 
-/* ===================== Galería / Carrusel (UNIFICADO) ===================== */
-/* Escritorio: grilla amplia */
-/* Escritorio */
+/* ===================== Galería / Carrusel (AJUSTADO) ===================== */
+/* Quitar aire de la sección (sobrescribe py-5) */
+.process-section{
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+@media (min-width:992px){
+  .process-section{
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
+  }
+}
+
+/* Contenedor */
 .process-gallery{
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* antes 300px */
-  gap: 20px;
- 
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* antes 260px */
+  gap: 12px;    
+
 }
 
+/* Tarjeta */
 .process-pic{
-  border-radius: 16px;
+  position: relative;
+  border-radius: 14px;
   border: 1px solid rgba(10,20,48,.10);
-  box-shadow: 0 10px 22px rgba(16,24,40,.10);
+  box-shadow: 0 8px 18px rgba(16,24,40,.10);                   /* sombra más ligera */
   overflow: hidden;
-  aspect-ratio: 4 / 3;                 /* más alta para que quepa la imagen */
-  background: linear-gradient(180deg,#d5d7da 0%, #90aae7fb 100%);
-  padding: 10px;                       /* deja aire para contain */
+  background: linear-gradient(180deg,#e9eefc 0%, #cfe0ff 100%);
+  margin: 0 !important;
+  padding: 0 !important;
+  aspect-ratio: 4 / 3; 
 }
 
-/* MUY IMPORTANTE: mostrar la imagen completa */
+/* Imagen completa sin recorte ni estiramiento */
 .process-pic img{
-  width: 100%;
-  height: 100%;
-  object-fit: contain !important;      /* antes estaba en cover, esto lo corrige */
-  display: block;
-}
+  width:100%;
+  height:100%;
+  object-fit: cover;      /* llena el contenedor y evita el hueco */
+  display:block;
+ }
+/* Tablet: carrusel horizontal */
 
-/* Tablet */
-@media (min-width: 576px) and (max-width: 991.98px){
+@media (min-width:576px) and (max-width:991.98px){
   .process-gallery{
-    display: flex;
-    gap: 22px;
-    overflow-x: auto;
-    padding: 10px 8px;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
+    display:flex; gap:18px; overflow-x:auto;
+    padding:8px 6px; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch;
   }
-  .process-pic{
-    flex: 0 0 420px;                   /* más ancha */
-    height: 280px;                     /* más alta */
-    scroll-snap-align: start;
-  }
+  .process-pic{ flex:0 0 340px; aspect-ratio: 4 / 5; }
 }
 
-/* Móvil */
-@media (max-width: 575.98px){
+@media (max-width:575.98px){
   .process-gallery{
     display: flex !important;
-    gap: 18px !important;
+    gap: 12px !important;
     overflow-x: auto !important;
-    padding: 10px 6px !important;
+    padding: 6px 6px !important;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
   }
   .process-pic{
-    flex: 0 0 360px !important;        /* antes 310px */
-    height: 240px !important;          /* antes 210px */
-    border-radius: 14px !important;
+    flex: 0 0 240px !important;  /* antes 280/300px */
+    aspect-ratio: 4 / 3 !important;
+    border-radius: 12px !important;
     scroll-snap-align: start !important;
   }
-  .process-gallery::-webkit-scrollbar{ height: 0; }
-  .process-gallery{ scrollbar-width: none; }
+  .process-gallery::-webkit-scrollbar{ height:0; }
+  .process-gallery{ scrollbar-width:none; }
 }
 
-
-
-
+/* Efecto brillo sutil al pasar */
+.process-pic::after{
+  content:"";
+  position:absolute; inset:-50% -20%;
+  background:linear-gradient(120deg, transparent 40%, rgba(255,255,255,.35) 50%, transparent 60%);
+  transform:translateX(-120%) rotate(12deg);
+  transition:transform .6s ease;
+  pointer-events:none;
+}
+.process-pic:hover::after{ transform:translateX(20%) rotate(12deg); }
 
 /* ===================== CTA (Contacto) ===================== */
 .cta-card{ background:#ffffff; border:1px solid #e9eef6; }
@@ -279,7 +293,7 @@ img{ max-width:100%; height:auto; display:block; }
 .cta-btn-whatsapp{
   background:#2cd369; color:#062c13; font-weight:700;
   padding:12px 18px; border-radius:12px; border:none;
-  box-shadow:0 10px 20px rgba(46, 202, 103, 0.25);
+  box-shadow:0 10px 20px rgba(46,202,103,.25);
 }
 .cta-btn-whatsapp:hover{ filter:brightness(1.05); color:#062c13; }
 .cta-btn-call{
@@ -299,6 +313,10 @@ img{ max-width:100%; height:auto; display:block; }
   display:flex; flex-direction:column; align-items:center; justify-content:center;
   text-align:center; gap:6px;
 }
+.site-footer{
+  margin-top: 0 !important;
+}
+
 .site-footer .footer-center{ order:-1; }  /* Aviso arriba */
 .site-footer .footer-left{ order:0; }
 .site-footer .footer-right{ order:1; }
@@ -309,57 +327,91 @@ img{ max-width:100%; height:auto; display:block; }
 
 /* ===== CTA (Contacto) – franja con fondo azul ===== */
 .cta-wrap{
-  background: #dbe7ff;              /* fondo azul claro */
-  padding: 28px 0;
-  border-top: 1px solid #d0dcfd;
-  border-bottom: 1px solid #d0dcfd;
+  background:#dbe7ff;
+  padding:28px 0;
+  border-top:1px solid #d0dcfd;
+  border-bottom:1px solid #d0dcfd;
+    margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+@media (min-width:992px){
+  .cta-wrap{ padding:40px 0; }
 }
 
-@media (min-width: 992px){
-  .cta-wrap{ padding: 40px 0; }
-}
-
-/* Tarjeta interna (se mantiene blanca) */
-.cta-card{
-  background: #ffffff;
-  border: 1px solid #e9eef6;
-  box-shadow: 0 8px 18px rgba(16,24,40,.08);
-  border-radius: 16px;
-}
-
+/* ===== Bullets uniformes en cards ===== */
 .cards-section .card .card-body ul.card-bullets{
-  margin: 0;
-  padding-left: 1.05rem;      /* sangría del bullet */
-  list-style: disc;
+  margin:0; padding-left:1.05rem; list-style:disc;
 }
-
 .cards-section .card .card-body ul.card-bullets li{
-  color: var(--ink-500);
-  line-height: 1.45;
-  font-size: .95rem;          /* desktop/tablet */
+  color:var(--ink-500); line-height:1.45; font-size:.95rem;
+}
+@media (max-width:575.98px){
+  .cards-section .card .card-body ul.card-bullets li{ font-size:.86rem; }
 }
 
-/* Móvil: mismo tamaño en TODAS */
+
+/* ===== HERO con imagen de fondo y texto fluido ===== */
+.hero-landing{
+  position: relative;
+  isolation: isolate;                 /* garantiza que el overlay no afecte fuera */
+  min-height: clamp(380px, 55vh, 680px);
+  display: grid;
+  place-items: center;
+  margin-bottom: 0;
+}
+
+.hero-landing .hero__bg{
+  position: absolute;
+  inset: 0;
+  background: url("imagenes/cerrar-la-mano-usando-el-dispositivo.jpg") center/cover no-repeat; /* desktop */
+  z-index: -1;
+}
+
+/* Overlay suave para que el texto siempre sea legible */
+.hero-landing::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, #32563eb 100%,
+                                        #0ea5e9 100%,
+                                        rgba(155, 168, 197, 0.55) 100%);
+  z-index: -1;
+}
+
+.hero__content{
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 6px 24px rgba(0,0,0,.25);
+  padding: 0 12px;
+}
+
+.hero__content h1{
+  margin: 0 0 .35rem;
+  font-weight: 900;
+  letter-spacing: .5px;
+  /* Tamaño responde al ancho de pantalla, pero nunca enano ni gigantesco */
+  font-size: clamp(1.25rem, 3.6vw + .4rem, 3rem);
+}
+
+.hero__content p{
+  margin-bottom: 1rem;
+  font-size: clamp(1rem, 1.4vw + .6rem, 1.6rem);
+}
+
+.hero__content .btn-lg{
+  padding: .85rem 1.25rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 24px rgba(13,110,253,.35);
+}
+
+/* En móviles puedes usar otra foto recortada para que “encuadre” mejor */
 @media (max-width: 575.98px){
-  .cards-section .card .card-body ul.card-bullets li{
-    font-size: .86rem;        /* el tamaño que querías en celular */
+  .hero-landing{
+    min-height: clamp(420px, 70vh, 560px);
+  }
+  .hero-landing .hero__bg{
+    background-image: url("imagenes/cerrar-la-mano-usando-el-dispositivo.jpg"); 
+    background-position: 60% center;                    /* ajusta el encuadre */
   }
 }
 
-/* -----------------Efectos de las imagenes ----------------------------*/
-
-.process-pic{ position: relative; overflow: hidden; }
-.process-pic::after{
-  content:"";
-  position:absolute; inset:-50% -20%;
-  background: linear-gradient(120deg, transparent 40%, rgba(241, 221, 221, 0.45) 50%, transparent 60%);
-  transform: translateX(-120%) rotate(12deg);
-  transition: transform .6s ease;
-  pointer-events:none;
-}
-.process-pic:hover::after{
-  transform: translateX(20%) rotate(12deg);
-}
-
-
-/* -----------------Efectos de las imagenes ----------------------------*/
