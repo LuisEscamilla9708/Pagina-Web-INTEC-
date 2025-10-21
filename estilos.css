@@ -380,9 +380,7 @@ img{ max-width:100%; height:auto; display:block; }
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(13, 27, 51, .55) 0%,
-    rgba(13, 27, 51, .35) 35%,
-    rgba(155, 168, 197, .28) 100%
+
   );
   z-index: -1;
 }
@@ -410,7 +408,7 @@ img{ max-width:100%; height:auto; display:block; }
 .hero__content .btn-lg{
   padding: .85rem 1.25rem;
   border-radius: 12px;
-  box-shadow: 0 10px 24px rgba(13,110,253,.35);
+  box-shadow: 0 10px 24px rgba(87, 134, 228, 0.35);
 }
 
 /* En móviles puedes usar otra foto recortada para que “encuadre” mejor */
@@ -426,5 +424,3 @@ img{ max-width:100%; height:auto; display:block; }
 
   .hero-landing .hero-title{ font-size: clamp(1.5rem, 5.5vw, 2rem); }
   .hero-landing .hero-sub  { font-size: clamp(.9rem, 3.6vw, 1rem); }
-
- 
