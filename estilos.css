@@ -424,3 +424,20 @@ img{ max-width:100%; height:auto; display:block; }
 
   .hero-landing .hero-title{ font-size: clamp(1.5rem, 5.5vw, 2rem); }
   .hero-landing .hero-sub  { font-size: clamp(.9rem, 3.6vw, 1rem); }
+
+  .hero__content .btn-lg{
+  font-size: clamp(.9rem, 1.4vw, 1rem); /* antes ~1.1–1.2rem */
+  padding: .55rem .9rem;                /* antes .85rem 1.25rem */
+  border-radius: 10px;                  /* un poco menos redondo */
+  min-width: 0;                         /* evita que se haga ancho por defecto */
+  box-shadow: 0 8px 18px rgba(13,110,253,.28);
+}
+
+/* Aún más compacto en móvil */
+@media (max-width:575.98px){
+  .hero__content .btn-lg{
+    font-size: .9rem;
+    padding: .5rem .85rem;
+    border-radius: 9px;
+  }
+}
