@@ -352,22 +352,24 @@ img{ max-width:100%; height:auto; display:block; }
 
 /* ===== HERO con imagen de fondo y texto fluido ===== */
 .hero-landing{
-  position: relative;
-  isolation: isolate;                 /* garantiza que el overlay no afecte fuera */
-  min-height: clamp(380px, 55vh, 680px);
+ position: relative;
+  isolation: isolate;
+  /* un solo min-height (no duplicar) */
+  min-height: clamp(380px, 62vh, 680px);
   display: grid;
   place-items: center;
   margin-bottom: 0;
-
-  min-height: 72vh;                 /* o 60–68vh si quieres menos alto */
-  background-size: cover;
-  background-position: center;      /* escritorio centrado */
+  /* IMPORTANTE: aquí NO va background ni cover ni position */
 }
 
 .hero-landing .hero__bg{
   position: absolute;
   inset: 0;
-  background: url("imagenes/cerrar-la-mano-usando-el-dispositivo.jpg") center/cover no-repeat; /* desktop */
+  /* imagen solo aquí */
+  background-image: url("imagenes/cerrar-la-mano-usando-el-dispositivo.jpg");
+  background-size: cover;           /* llena sin deformar (recorta si hace falta) */
+  background-position: 50% center;  /* escritorio centrado */
+  background-repeat: no-repeat;
   z-index: -1;
 }
 
@@ -376,9 +378,12 @@ img{ max-width:100%; height:auto; display:block; }
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, #32563eb 100%,
-                                        #0ea5e9 100%,
-                                        rgba(155, 168, 197, 0.55) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(13, 27, 51, .55) 0%,
+    rgba(13, 27, 51, .35) 35%,
+    rgba(155, 168, 197, .28) 100%
+  );
   z-index: -1;
 }
 
@@ -411,15 +416,13 @@ img{ max-width:100%; height:auto; display:block; }
 /* En móviles puedes usar otra foto recortada para que “encuadre” mejor */
 @media (max-width: 575.98px){
   .hero-landing{
-     min-height: 62vh;               /* menos alto */
-    background-position: 35% center;/* Mueve el punto de enfoque.
-                                        Prueba 25% / 35% / 65% según tu foto */
+    min-height: 56vh;
   }
   .hero-landing .hero__bg{
-    background-image: url("imagenes/cerrar-la-mano-usando-el-dispositivo.jpg"); 
-    background-position: 60% center;                    /* ajusta el encuadre */
+    /* mueve el punto de interés de la foto para que no se “corte” lo importante */
+    background-position: 35% center; /* prueba 25% / 35% / 65% según tu foto */
   }
-
+}
 
   .hero-landing .hero-title{ font-size: clamp(1.5rem, 5.5vw, 2rem); }
   .hero-landing .hero-sub  { font-size: clamp(.9rem, 3.6vw, 1rem); }
